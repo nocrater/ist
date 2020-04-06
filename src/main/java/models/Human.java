@@ -12,6 +12,10 @@ public class Human {
     private long id;
     private StringProperty name = new SimpleStringProperty();
 
+    public Human() {
+        this.name.set("Test");
+    }
+
     public Human(String name) {
         this.name.set(name);
     }
@@ -30,7 +34,7 @@ public class Human {
     }
 
     @Id
-    @GeneratedValue(generator = "sqlite_human")
+    @GeneratedValue(generator = "sqlite")
     public long getId() {
         return id;
     }

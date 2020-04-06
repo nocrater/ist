@@ -6,7 +6,7 @@ import gateways.HibernateHumanGateway;
 import models.Human;
 
 public class GWRegistry {
-    private Gateway<Person> personGateway = new HibernateHumanGateway();
+    private Gateway<Human> humanGateway = new HibernateHumanGateway();
 
     private static GWRegistry instance = new GWRegistry();
 
@@ -17,7 +17,7 @@ public class GWRegistry {
         return instance;
     }
 
-    public Gateway<Person> getHumanGateway() {
-        return personHuman;
+    public Gateway<Human> getHumanGateway() {
+        return humanGateway;
     }
 }

@@ -9,9 +9,9 @@ public class EntityManagerFactoryUtil {
 
     private EntityManagerFactoryUtil() {}
 
-    public static EntityManager geteEntityManager() {
+    public static EntityManager getEntityManager() {
         if (factory == null)
-            factory = Persistence.createEntityManagerFactory("persons");
+            factory = Persistence.createEntityManagerFactory("humans");
         return factory.createEntityManager();
     }
 }

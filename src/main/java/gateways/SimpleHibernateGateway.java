@@ -8,7 +8,7 @@ import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 public class SimpleHibernateGateway<T> implements gateways.Gateway<T> {
-    private EntityManager em = EntityManagerFactoryUtil.geteEntityManager();
+    private EntityManager em = EntityManagerFactoryUtil.getEntityManager();
     private Class<T> persistentClass;
 
     @SuppressWarnings("unchecked")
@@ -24,10 +24,10 @@ public class SimpleHibernateGateway<T> implements gateways.Gateway<T> {
 
     @Override
     public T find(Long id) throws EntityNotFound {
-        T person = em.find(persistentClass, id);
-        if (person == null)
+        T human = em.find(persistentClass, id);
+        if (human == null)
             throw new EntityNotFound(String.format("Entity with id=%d not found", id ));
-        return person;
+        return human;
     }
 
     @Override

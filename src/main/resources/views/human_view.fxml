@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="99.0" prefWidth="605.0" spacing="10.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HumanController">
+   <children>
+      <Label fx:id="firstNameLbl" text="Название" />
+      <TextField fx:id="nameEdit" />
+      <HBox alignment="BOTTOM_RIGHT" prefHeight="101.0" prefWidth="605.0" spacing="10" VBox.vgrow="ALWAYS">
+         <children>
+            <Button minWidth="100.0" mnemonicParsing="false" onAction="#clickOk" text="Ок" />
+            <Button minWidth="100.0" mnemonicParsing="false" onAction="#clickCancel" text="Отмена" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
