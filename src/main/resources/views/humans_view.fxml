@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="273.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HumansController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="273.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HumansController">
    <children>
       <ToolBar prefHeight="40.0" prefWidth="200.0">
         <items>
-          <Button mnemonicParsing="false" onAction="#add" text="Новый" />
-            <Button mnemonicParsing="false" onAction="#edit" text="Редактирование" />
-            <Button mnemonicParsing="false" onAction="#delete" text="Удалить" />
+          <Button mnemonicParsing="false" onAction="#add" text="New" />
+            <Button mnemonicParsing="false" onAction="#edit" text="Edit" />
+            <Button mnemonicParsing="false" onAction="#delete" text="Delete" />
         </items>
       </ToolBar>
       <TableView fx:id="tableView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0">
          <columns>
-            <TableColumn fx:id="nameTableColumn" maxWidth="1.7976931348623157E308" prefWidth="599.0" text="Имя" />
+            <TableColumn fx:id="nameTableColumn" maxWidth="1.7976931348623157E308" prefWidth="599.0" text="Name" />
          </columns></TableView>
    </children>
 </VBox>
