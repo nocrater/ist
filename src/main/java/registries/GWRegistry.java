@@ -1,12 +1,15 @@
 package registries;
 
 
+import gateways.AnimalGateway;
 import gateways.Gateway;
-import gateways.HibernateHumanGateway;
+import gateways.HumanGateway;
+import models.Animal;
 import models.Human;
 
 public class GWRegistry {
-    private Gateway<Human> humanGateway = new HibernateHumanGateway();
+    private Gateway<Human> humanGateway = new HumanGateway();
+    private Gateway<Animal> animalGateway = new AnimalGateway();
 
     private static GWRegistry instance = new GWRegistry();
 
@@ -19,5 +22,9 @@ public class GWRegistry {
 
     public Gateway<Human> getHumanGateway() {
         return humanGateway;
+    }
+
+    public Gateway<Animal> getAnimalGateway() {
+        return animalGateway;
     }
 }

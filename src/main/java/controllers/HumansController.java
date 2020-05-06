@@ -29,10 +29,14 @@ public class HumansController extends Controller {
 
     public void add(){
         Human human = new Human();
-        app.editWindow("human", (loader) -> {
+        boolean is_cancelled = app.editWindow("human", (loader) -> {
             HumanController controller = loader.getController();
             controller.setHuman(human);
         });
+
+        if (is_cancelled)
+            return;
+
         humans.add(human);
     }
 

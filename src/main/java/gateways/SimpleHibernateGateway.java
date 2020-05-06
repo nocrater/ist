@@ -24,10 +24,10 @@ public class SimpleHibernateGateway<T> implements gateways.Gateway<T> {
 
     @Override
     public T find(Long id) throws EntityNotFound {
-        T human = em.find(persistentClass, id);
-        if (human == null)
+        T entity = em.find(persistentClass, id);
+        if (entity == null)
             throw new EntityNotFound(String.format("Entity with id=%d not found", id ));
-        return human;
+        return entity;
     }
 
     @Override

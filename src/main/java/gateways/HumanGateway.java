@@ -2,5 +2,5 @@ package gateways;
 
 import models.Human;
 
-public class HumanGateway extends SimpleGateway<Human> {
+public class HumanGateway extends SimpleHibernateGateway<Human> {
 }

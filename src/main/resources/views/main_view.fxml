@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
@@ -26,7 +26,6 @@
                </opaqueInsets>
             </Button>
             <Button mnemonicParsing="false" text="Clients" />
-            <Button mnemonicParsing="false" text="Employees" />
          </children>
          <opaqueInsets>
             <Insets />
@@ -37,33 +36,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
          <children>
-            <Button mnemonicParsing="false" text="Animals" />
-            <Button mnemonicParsing="false" text="Animal cards" />
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
-         <children>
-            <Button mnemonicParsing="false" text="Housings" />
-            <Button mnemonicParsing="false" text="Clinics" />
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
-         <children>
-            <Button mnemonicParsing="false" text="Positions" />
-            <Button mnemonicParsing="false" text="Shelter positions" />
-            <Button mnemonicParsing="false" text="Clinic positions" />
-            <Button mnemonicParsing="false" text="Veterinarian positions" />
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
-         <children>
-            <Button mnemonicParsing="false" text="Housing acts" />
-            <Button mnemonicParsing="false" text="Medical acts" />
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
-         <children>
-            <Button mnemonicParsing="false" text="Vaccines" />
+            <Button mnemonicParsing="false" onAction="#onAnimalsClick" text="Animals" />
          </children>
       </HBox>
    </children>

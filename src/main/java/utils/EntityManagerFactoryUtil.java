@@ -11,7 +11,7 @@ public class EntityManagerFactoryUtil {
 
     public static EntityManager getEntityManager() {
         if (factory == null)
-            factory = Persistence.createEntityManagerFactory("humans");
+            factory = Persistence.createEntityManagerFactory("database");
         return factory.createEntityManager();
     }
 }

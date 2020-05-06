@@ -1,7 +1,6 @@
 package controllers;
 
 import gateways.Gateway;
-import gateways.HumanGateway;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -18,17 +17,22 @@ public class HumanController {
     @FXML
     TextField nameEdit;
 
-    @FXML
-    public void initialize(){
-    }
-
     public void setHuman(Human human) {
         this.human = human;
         nameEdit.setText(human.getName());
     }
 
     public void clickOk(){
-        String name = nameEdit.getText();
+        String name = nameEdit.getText().trim();
+
+        if (name.equals("")) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Name should not be empty or contains only spaces");
+            alert.showAndWait();
+            return;
+        }
+
         human.setName(name);
         try {
             if (human.getId() != 0)
@@ -41,14 +45,9 @@ public class HumanController {
         }
         catch (Exception e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Ошибка");
+            alert.setTitle("Error");
             alert.setHeaderText(e.getMessage());
             alert.showAndWait();
         }
-    }
-
-    public void clickCancel(){
-        Stage stage = (Stage) nameEdit.getScene().getWindow();
-        stage.close();
     }
 }

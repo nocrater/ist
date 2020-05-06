@@ -1,5 +1,6 @@
 package models;
 
+import com.sun.istack.NotNull;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -13,13 +14,14 @@ public class Human {
     private StringProperty name = new SimpleStringProperty();
 
     public Human() {
-        this.name.set("Test");
+        this.name.set("");
     }
 
     public Human(String name) {
         this.name.set(name);
     }
 
+    @NotNull
     public String getName() {
         return name.get();
     }

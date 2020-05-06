@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AnimalsController">
+   <children>
+      <ToolBar prefHeight="40.0" prefWidth="200.0">
+        <items>
+          <Button mnemonicParsing="false" onAction="#add" text="New" />
+            <Button mnemonicParsing="false" onAction="#edit" text="Edit" />
+            <Button mnemonicParsing="false" onAction="#delete" text="Delete" />
+        </items>
+      </ToolBar>
+      <TableView fx:id="tableView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="394.0" prefWidth="600.0">
+         <columns>
+            <TableColumn fx:id="nameTableColumn" maxWidth="1.7976931348623157E308" prefWidth="120.0" text="Name" />
+            <TableColumn fx:id="descriptionTableColumn" prefWidth="120.0" text="Description" />
+            <TableColumn fx:id="speciesTableColumn" prefWidth="120.0" text="Species" />
+            <TableColumn fx:id="stateTableColumn" prefWidth="120.0" text="State" />
+            <TableColumn fx:id="whereNowTableColumn" prefWidth="120.0" text="Where now" />
+         </columns></TableView>
+   </children>
+</VBox>
