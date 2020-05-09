@@ -1,7 +1,5 @@
 package controllers;
 
-import main.Main;
-
 public class MainController extends Controller {
 
     public void onHumansClick() {
@@ -10,5 +8,9 @@ public class MainController extends Controller {
 
     public void onAnimalsClick() {
         app.viewTable("animals");
+    }
+
+    public void onClientsClick() {
+        app.viewTable("clients");
     }
 }

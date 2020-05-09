@@ -8,7 +8,8 @@ import javax.persistence.*;
 
 @Entity
 @Access(AccessType.PROPERTY)
-public class Human {
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Human implements EntityClass {
 
     private long id;
     private StringProperty name = new SimpleStringProperty();

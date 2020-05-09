@@ -29,7 +29,7 @@ public class HumansController extends Controller {
 
     public void add(){
         Human human = new Human();
-        boolean is_cancelled = app.editWindow("human", (loader) -> {
+        boolean is_cancelled = app.editWindow("human", "Adding human", (loader) -> {
             HumanController controller = loader.getController();
             controller.setHuman(human);
         });
@@ -50,7 +50,11 @@ public class HumansController extends Controller {
 
     public void edit(){
         Human human = tableView.getSelectionModel().getSelectedItem();
-        app.editWindow("human", (loader) -> {
+
+        if (human == null)
+            return;
+
+        app.editWindow("human", "Editing human", (loader) -> {
             HumanController controller = loader.getController();
             controller.setHuman(human);
         });

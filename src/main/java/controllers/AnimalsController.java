@@ -9,6 +9,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 import models.Animal;
 import registries.GWRegistry;
 
@@ -32,12 +34,19 @@ public class AnimalsController extends Controller {
     @FXML
     private TableColumn<Animal, WhereNow> whereNowTableColumn;
 
+    @FXML
+    private HBox selecting;
+
     private Gateway<Animal> animalGateway = GWRegistry.getInstance().getAnimalGateway();
 
     ObservableList<Animal> animals = FXCollections.observableArrayList(animalGateway.all());
 
+    Animal animal;
+
     @FXML
     public void initialize(){
+        selecting.setVisible(false);
+
         nameTableColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         descriptionTableColumn.setCellValueFactory(cellData -> cellData.getValue().descriptionProperty());
         speciesTableColumn.setCellValueFactory(cellData -> cellData.getValue().speciesProperty());
@@ -46,9 +55,28 @@ public class AnimalsController extends Controller {
         tableView.setItems(animals);
     }
 
+    public void selecting(Animal animal) {
+        this.animal = animal;
+        selecting.setVisible(true);
+    }
+
+    public void selectAnimal() {
+        Animal tableAnimal = tableView.getSelectionModel().getSelectedItem();
+
+        animal.setId(tableAnimal.getId());
+        animal.setName(tableAnimal.getName());
+        animal.setDescription(tableAnimal.getDescription());
+        animal.setSpecies(tableAnimal.getSpecies());
+        animal.setState(tableAnimal.getState());
+        animal.setWhereNow(tableAnimal.getWhereNow());
+
+        Stage stage = (Stage) selecting.getScene().getWindow();
+        stage.close();
+    }
+
     public void add(){
         Animal animal = new Animal();
-        boolean is_cancelled = app.editWindow("animal", (loader) -> {
+        boolean is_cancelled = app.editWindow("animal", "Adding animal", (loader) -> {
             AnimalController controller = loader.getController();
             controller.setAnimal(animal);
         });
@@ -69,7 +97,11 @@ public class AnimalsController extends Controller {
 
     public void edit(){
         Animal animal = tableView.getSelectionModel().getSelectedItem();
-        app.editWindow("animal", (loader) -> {
+
+        if (animal == null)
+            return;
+
+        app.editWindow("animal", "Editing Animal", (loader) -> {
             AnimalController controller = loader.getController();
             controller.setAnimal(animal);
         });

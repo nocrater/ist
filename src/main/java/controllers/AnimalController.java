@@ -11,7 +11,7 @@ import models.Animal;
 import registries.GWRegistry;
 
 
-public class AnimalController {
+public class AnimalController extends Controller {
 
     private Animal animal;
 

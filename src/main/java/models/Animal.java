@@ -13,7 +13,7 @@ import javax.persistence.*;
 
 @Entity
 @Access(AccessType.PROPERTY)
-public class Animal {
+public class Animal implements EntityClass {
 
     private long id;
     private StringProperty name = new SimpleStringProperty();
@@ -22,6 +22,44 @@ public class Animal {
     private ObjectProperty<Species> species = new SimpleObjectProperty<>();
     private ObjectProperty<State> state = new SimpleObjectProperty<>();
     private ObjectProperty<WhereNow> whereNow = new SimpleObjectProperty<>();
+
+    private ObjectProperty<Client> givingClient = new SimpleObjectProperty<>();
+    private ObjectProperty<Client> takingClient = new SimpleObjectProperty<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "GIVING_CLIENT_ANIMAL",
+            joinColumns = @JoinColumn(name = "ANIMAL_ID"), inverseJoinColumns = @JoinColumn(name = "GIVING_ANIMAL_ID"))
+    public Client getGivingClient() {
+        return givingClient.get();
+    }
+
+    @Transient
+    public ObjectProperty<Client> givingClientProperty() {
+        return givingClient;
+    }
+
+    public void setGivingClient(Client givingClient) {
+        this.givingClient.set(givingClient);
+    }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "TAKING_CLIENT_ANIMAL",
+            joinColumns = @JoinColumn(name = "ANIMAL_ID"), inverseJoinColumns = @JoinColumn(name = "TAKING_ANIMAL_ID"))
+    public Client getTakingClient() {
+        return takingClient.get();
+    }
+
+    @Transient
+    public ObjectProperty<Client> takingClientProperty() {
+        return takingClient;
+    }
+
+    public void setTakingClient(Client takingClient) {
+        this.takingClient.set(takingClient);
+    }
+
 
     public Animal() {
         this.name.set("");

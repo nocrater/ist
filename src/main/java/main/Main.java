@@ -55,14 +55,14 @@ public class Main extends Application {
         {}
     }
 
-    public boolean editWindow(String name, ControllerCallback callback) {
+    public boolean editWindow(String name, String title, ControllerCallback callback) {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/views/" + name + "_view.fxml"));
             VBox page = (VBox) loader.load();
 
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("Editing");
+            dialogStage.setTitle(title);
             dialogStage.initModality(Modality.WINDOW_MODAL);
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);

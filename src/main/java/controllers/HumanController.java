@@ -8,7 +8,7 @@ import models.Human;
 import registries.GWRegistry;
 
 
-public class HumanController {
+public class HumanController extends Controller {
 
     private Human human;
 
@@ -34,6 +34,7 @@ public class HumanController {
         }
 
         human.setName(name);
+
         try {
             if (human.getId() != 0)
                 humanGateway.update(human);

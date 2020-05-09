@@ -25,7 +25,7 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button mnemonicParsing="false" text="Clients" />
+            <Button mnemonicParsing="false" onAction="#onClientsClick" text="Clients" />
          </children>
          <opaqueInsets>
             <Insets />
